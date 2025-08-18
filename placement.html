@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Box Model Demonstration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .demo-box {
+      background-color: #3498db; /* Content */
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+      width: 100px;
+      height: 100px;
+    }
+
+    .controls {
+      background-color: #eef1f5;
+      padding: 20px;
+      border-radius: 8px;
+      width: 320px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    .control-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .control-group input[type="range"] {
+      width: 100%;
+    }
+
+    .info {
+      max-width: 500px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border: 1px solid #000;
+    }
+
+    .margin-box {
+      background-color: transparent;
+      padding: var(--margin);
+    }
+
+    .border-box {
+      background-color: orange;
+      border: var(--border) solid #c0392b;
+      padding: var(--padding);
+    }
+
+    .padding-box {
+      background-color: #f1c40f;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Model Demonstration</h1>
+
+  <div class="box-container">
+    <div class="margin-box" id="marginBox">
+      <div class="border-box" id="borderBox">
+        <div class="padding-box" id="paddingBox">
+          <div class="demo-box">Content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="marginRange">Margin: <span id="marginValue">20</span>px</label>
+      <input type="range" id="marginRange" min="0" max="100" value="20" />
+    </div>
+    <div class="control-group">
+      <label for="borderRange">Border: <span id="borderValue">5</span>px</label>
+      <input type="range" id="borderRange" min="0" max="20" value="5" />
+    </div>
+    <div class="control-group">
+      <label for="paddingRange">Padding: <span id="paddingValue">30</span>px</label>
+      <input type="range" id="paddingRange" min="0" max="100" value="30" />
+    </div>
+  </div>
+
+  <div class="info">
+    <h3>Box Model Components</h3>
+    <div class="legend-item">
+      <div class="legend-color" style="background: transparent; border: 1px dashed #000;"></div>
+      <div><strong>Margin</strong> - Space outside the border (transparent)</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: orange;"></div>
+      <div><strong>Border</strong> - Surrounds the padding and content</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #f1c40f;"></div>
+      <div><strong>Padding</strong> - Space between border and content</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #3498db;"></div>
+      <div><strong>Content</strong> - Actual content of the box</div>
+    </div>
+  </div>
+
+  <script>
+    const marginRange = document.getElementById("marginRange");
+    const borderRange = document.getElementById("borderRange");
+    const paddingRange = document.getElementById("paddingRange");
+
+    const marginBox = document.getElementById("marginBox");
+    const borderBox = document.getElementById("borderBox");
+    const paddingBox = document.getElementById("paddingBox");
+
+    const marginValue = document.getElementById("marginValue");
+    const borderValue = document.getElementById("borderValue");
+    const paddingValue = document.getElementById("paddingValue");
+
+    function updateBoxModel() {
+      const margin = marginRange.value + "px";
+      const border = borderRange.value + "px";
+      const padding = paddingRange.value + "px";
+
+      marginBox.style.padding = margin;
+      borderBox.style.borderWidth = border;
+      borderBox.style.borderStyle = "solid";
+      borderBox.style.borderColor = "#c0392b";
+      borderBox.style.padding = padding;
+
+      marginValue.textContent = marginRange.value;
+      borderValue.textContent = borderRange.value;
+      paddingValue.textContent = paddingRange.value;
+    }
+
+    marginRange.addEventListener("input", updateBoxModel);
+    borderRange.addEventListener("input", updateBoxModel);
+    paddingRange.addEventListener("input", updateBoxModel);
+
+    updateBoxModel(); // Initialize on load
+  </script>
+
+</body>
+</html>
