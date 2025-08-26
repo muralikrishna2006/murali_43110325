@@ -1,0 +1,86 @@
+A school has following rules for grading system:
+a. Below 25 - F
+b. 25 to 45 - E
+c. 45 to 50 - D
+d. 50 to 60 - C
+e. 60 to 80 - B
+f. Above 80 – A
+Ask user to enter marks and print the corresponding grade.
+package murr;
+import java.util.Scanner;
+
+public class grading {
+
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        
+	        System.out.print("Enter your marks: ");
+	        int marks = scanner.nextInt();
+	        char grade;
+
+	        
+	        if (marks < 25) {
+	            grade = 'F';
+	        } else if (marks <= 45) {
+	            grade = 'E';
+	        } else if (marks <= 50) {
+	            grade = 'D';
+	        } else if (marks <= 60) {
+	            grade = 'C';
+	        } else if (marks <= 80) {
+	            grade = 'B';
+	        } else {
+	            grade = 'A';
+	        }
+
+	        
+	        System.out.println("Your grade is: " + grade);
+	        
+	        scanner.close();
+	    }
+	}
+Take values of length and breadth of a rectangle from user and check if it is square or not.
+package murr;
+import java.util.Scanner;
+public class square {
+ public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	       
+	        System.out.print("Enter the length of the rectangle: ");
+	        int length = scanner.nextInt();
+
+	        System.out.print("Enter the breadth of the rectangle: ");
+	        int breadth = scanner.nextInt();
+
+	        
+	        if (length == breadth) {
+	            System.out.println("It is a square.");
+	        } else {
+	            System.out.println("It is not a square.");
+	        }
+
+	        scanner.close();
+	    }
+	}
+
+
+Write a program to print absolute vlaue of a number entered by user. E.g.-
+INPUT: 1        OUTPUT: 1
+INPUT: -1        OUTPUT: 1
+
+package murr;
+import java.util.Scanner;
+public class numb {
+public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.print("Enter a number: ");
+	        int number = scanner.nextInt();
+	        int absoluteValue = (number < 0) ? -number : number;
+	        System.out.println("Absolute value: " + absoluteValue);
+
+	        scanner.close();
+	    }
+	}
+
