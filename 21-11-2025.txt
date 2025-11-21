@@ -1,0 +1,97 @@
+// constructor overriding
+package aiml;
+
+class Vehicle {
+    String type;
+
+    Vehicle() {
+        type = "Generic Vehicle";
+        System.out.println("Vehicle constructor: " + type);
+    }
+}
+
+class Car extends Vehicle {
+    Car() {
+        super(); 
+        type = "Car";
+        System.out.println("Car constructor: " + type);
+    }
+}
+
+public class murali1 {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+    }
+}
+// Overloaded constructor
+package aiml;
+class Box {
+    int length;
+    Box() {
+        length = 0;
+    }
+    Box(int l) {
+        length = l;
+    }
+    void show() {
+        System.out.println("Length: " + length);
+    }
+}
+public class Murali2 {
+    public static void main(String[] args) {
+        Box b1 = new Box(45);
+        Box b2 = new Box(10);
+        b1.show();
+        b2.show();
+    }
+}
+ // Encapsulated inner class
+package aiml;
+public class Murali3 {
+	static class Person {
+        private String name;
+        private int age;
+        public void setName(String name) {
+            this.name = name;
+        }
+        public void setAge(int age) {
+            if (age > 0) {
+                this.age = age;
+            }
+        }
+        public String getName() {
+            return name;
+        }
+        public int getAge() {
+            return age;
+        }
+    }
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("Murali");
+        p.setAge(22);
+        System.out.println("Name: " + p.getName());
+        System.out.println("Age: " + p.getAge());
+    }
+}
+//exception handling
+package aiml;
+import java.util.Scanner;
+public class exception{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter a number: ");
+            int number = scanner.nextInt();
+            int result = 100 / number;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        } catch (Exception e) {
+            System.out.println("Error: Invalid input or unexpected issue.");
+        } finally {
+            System.out.println("Program execution completed.");
+            scanner.close();
+        }
+    }
+}
