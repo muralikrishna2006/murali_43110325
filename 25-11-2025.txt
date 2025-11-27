@@ -1,0 +1,166 @@
+package nov19;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class aiml {
+    public static void main(String args[]) {
+        //1. Print an array in Java
+        int[] intArray = { 1, 2, 3, 4, 5 };
+        String intArrayString = Arrays.toString(intArray);
+        System.out.println(intArray);
+        System.out.println(intArrayString);
+
+        //3.Check if an array contains a certain value
+        String[] stringArray1 = { "abc", "bcd", "cba", "dcb", "efg" };
+        boolean b = Arrays.asList(stringArray1).contains("abc");
+        System.out.println(b);
+
+        //4. Concatenate two arrays
+        int[] intArray = { 1, 2, 3, 4, 5 };
+        int[] intArray2 = { 6, 7, 8, 9, 10 };
+        int a[] = ArrayUtils.addAll(intArray, intArray2);
+        String s = Arrays.toString(a);
+        System.out.println(s);
+
+        //6. Joins the elements of the provided array into a single String
+        String j = StringUtils.join(new String[] { "a", "b", "c" }, ", ");
+        System.out.println(j);
+
+        //7. Covnert an ArrayList to an array
+        String[] stringArray = { "a", "b", "c", "d", "e" };
+        ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
+        String[] stringArr = new String[arrayList.size()];
+        arrayList.toArray(stringArr);
+        for (String s : stringArr)
+            System.out.println(s);
+        
+        //8.Convert an array to a set
+        String[] s1 = { "a", "b", "c", "d", "e","a" };
+        Set<String> set123 = new HashSet<String>(Arrays.asList(s1));
+        System.out.println(set123);
+
+        //9. Reverse an array
+        int[] intArray3 = { 1, 2, 3, 4, 5 };
+        ArrayUtils.reverse(intArray3);
+        System.out.println(Arrays.toString(intArray3));
+
+        //10. Remove element of an array
+        int[] intArray4 = { 1, 2, 3, 4, 5 };
+        int[] removed = ArrayUtils.removeElement(intArray4, 3);//create a new array
+        System.out.println(Arrays.toString(removed));
+        
+    }
+
+}
+package nov19;
+
+public class OMRKing {
+    public static void main(String[] args) {
+        //Java String toUpperCase() and toLowerCase() method
+        String s="Sachin";
+        System.out.println(s.toUpperCase());//SACHIN
+        System.out.println(s.toLowerCase());//sachin
+        System.out.println(s);
+
+        //Java String trim() method
+        String s1="  Sachin is a cricket player  ";
+        System.out.println(s1);//  Sachin
+        System.out.println(s1.trim());
+
+        //Java String startsWith() and endsWith() method
+        String s3="Sachin";
+        System.out.println(s3.startsWith("Sa"));//true
+        System.out.println(s3.endsWith("N"));
+
+        //Java String charAt() method
+        String s4="Sachin Ten";
+        System.out.println(s4.charAt(0));//S
+        System.out.println(s4.charAt(3));
+
+        //Java String length() method
+        String s5="Sachin";
+        System.out.println(s5.length());
+
+        //Java String intern() method
+        String s6=new String("Sachin");
+        String s2=s6.intern();
+        System.out.println(s2);
+
+        //Java String valueOf() method
+        int a=10;
+        String s7=String.valueOf(a);
+        System.out.println(s7+10);
+
+        //Java String replace() method
+        String s8="Java is a programming language. Java is a platform. Java is an Island.";
+        String replaceString=s8.replace("Java","Python");//replaces all occurrences of "Java" to "Python"
+        System.out.println(replaceString);
+
+        //String Concatenation by concat() method
+        String s9="Sachin ";
+        String s10="Tendulkar";
+        String s11=s9.concat(s10);
+        System.out.println(s11);
+
+        //String compare by compareTo() method
+        String str1="Sachin";
+        String str2="Sachin";
+        String str3 ="Ratan";
+        System.out.println(str1.compareTo(str2));
+        System.out.println(s1.compareTo(str3));
+        System.out.println(str3.compareTo(str1));
+
+        //Java String replaceAll() example: replace character
+        String str4="javatpoint is a very good website";
+        String replaceString1=str4.replaceAll("a","e");//replaces all occurrences of "a" to "e"
+        System.out.println(replaceString1);
+
+        //Java String split() method example
+        String str5="java string split method by javatpoint";
+        String[] words=str5.split("\\s");
+        for(String w:words) {
+            System.out.println(w);
+        }
+
+        String str6="welcome to split world";
+        System.out.println("returning words:");
+        for(String w:str6.split("\\s",0)){
+            System.out.println(w);
+        }
+        System.out.println("returning words:");
+        for(String w:str6.split("\\s",1)){
+            System.out.println(w);
+        }
+        System.out.println("returning words:");
+        for(String w:str6.split("\\s",2)){
+            System.out.println(w);
+        }
+    }
+
+}
+package nov19;
+
+public class OMRKing {
+    public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+        StringBuffer sb = new StringBuffer("Sathyabama");
+        for (int i=0;i<1000000;i++){
+            sb.append("College");
+        }
+        System.out.println("Time take by"
+        +"StringBuffer:"+
+                (System.currentTimeMillis()-startTime)+"ms");
+        long startTime1 = System.currentTimeMillis();
+        StringBuffer sb2 = new StringBuffer("Sathyabama");
+        for (int i=0;i<1000000;i++){
+            sb2.append("College");
+        }
+        System.out.println("Time take by"
+                +"StringBuffer:"+
+                (System.currentTimeMillis()-startTime1)+"ms");
+    }
+
+}
